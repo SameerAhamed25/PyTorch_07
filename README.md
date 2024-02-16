@@ -46,7 +46,7 @@ Creates 2 nn.Linear layers in the constructor capable of handling the input and 
 Defines a forward() method containing the forward pass computation of the model.
 Instantiates the model class and sends it to the target device.
 
-# 1. Construct a model class that subclasses nn.Module
+ Construct a model class that subclasses nn.Module
 class CircleModelV0(nn.Module):
     def __init__(self):
         super().__init__()
@@ -59,13 +59,13 @@ class CircleModelV0(nn.Module):
         # Return the output of layer_2, a single feature, the same shape as y
         return self.layer_2(self.layer_1(x)) # computation goes through layer_1 first then the output of layer_1 goes through layer_2
 
-# 4. Create an instance of the model and send it to target device
+ Create an instance of the model and send it to target device
 model_0 = CircleModelV0().to(device)
 model_0
 
 nn.Sequential performs a forward pass computation of the input data through the layers in the order they appear.
 
-# Replicate CircleModelV0 with nn.Sequential
+ Replicate CircleModelV0 with nn.Sequential
 model_0 = nn.Sequential(
     nn.Linear(in_features=2, out_features=5),
     nn.Linear(in_features=5, out_features=1)
